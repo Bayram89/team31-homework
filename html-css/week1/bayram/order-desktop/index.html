@@ -8,18 +8,17 @@
   </head>
 
   <body>
-    <div class="summary-container">
-      <div class="order-summary">Order Summary</div>
-      <div class="total-container">
+    <section class="summary-container">
+      <h1 class="order-summary">Order Summary</h1>
+      <div class="total-container with-separator">
         <span class="total">Total</span>
         <span>$333 / month</span>
       </div>
-      <div class="separator"></div>
       <div class="total-container total-bold">
         <span class="total">Total</span>
         <span>$100</span>
       </div>
-    </div>
+    </section>
 
     <div class="payment-container">
       <h2 class="payment-title">Payment Method</h2>
@@ -39,49 +38,48 @@
       </div>
     </div>
 
-    <form>
-      <div class="card-container">
-        <h2 class="card-info">Card Info</h2>
-        <div class="multi-card-container">
-          <div class="card-input-container card-number">
-            <label for="card-number">Card number</label>
-            <input
-              type="text"
-              class=""
-              placeholder="1234 1234 1234 1234"
-              name="card-number"
-              required
-            />
-            <span class="tooltip">?</span>
-          </div>
+    <form class="card-container">
+      <h2 class="card-info">Card Info</h2>
+      <div class="multi-card-container">
+        <div class="card-input-container card-number">
+          <label for="card-number">Card number</label>
+          <input
+            type="text"
+            class=""
+            placeholder="1234 1234 1234 1234"
+            name="card-number"
+            required
+          />
+          <span class="tooltip">?</span>
+        </div>
 
-          <div class="card-input-container card-expiry">
-            <label for="exp-date">Expiry date</label>
-            <input
-              type="text"
-              class=""
-              placeholder="MM / YY"
-              name="exp-date"
-              required
-            />
-          </div>
+        <div class="card-input-container card-expiry">
+          <label for="exp-date">Expiry date</label>
+          <input
+            type="text"
+            class=""
+            placeholder="MM / YY"
+            name="exp-date"
+            required
+          />
+        </div>
 
-          <div class="card-input-container card-security">
-            <label for="sec-code">Security code</label>
-            <input
-              type="text"
-              class=""
-              placeholder="CVV"
-              name="sec-code"
-              required
-            />
-            <span class="tooltip">?</span>
-          </div>
+        <div class="card-input-container card-security">
+          <label for="sec-code">Security code</label>
+          <input
+            type="text"
+            class=""
+            placeholder="CVV"
+            name="sec-code"
+            id="sec-code"
+            required
+          />
+          <span class="tooltip">?</span>
         </div>
       </div>
 
-      <button type="submit" class="buy-now" value="Buy Now">Buy Now</button>
-      <p class="help-text">Need Help?</p>
+      <button type="submit" class="buy-now">Buy Now</button>
+      <a href="#" class="help-text">Need Help?</a>
     </form>
   </body>
 </html>

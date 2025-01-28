@@ -5,6 +5,8 @@ body {
   background-color: #f9f9f9;
   color: #333;
   line-height: 1.6;
+}
+section {
   max-width: 800px;
   margin: 0 auto;
 }
@@ -30,6 +32,11 @@ h2 {
   justify-content: space-between;
   align-items: center;
 }
+
+.with-separator {
+  border-bottom: 2px solid white;
+}
+
 .total-bold {
   font-weight: bold;
 }
@@ -52,6 +59,7 @@ h2 {
   justify-content: flex-start;
   gap: 20px;
   padding: 20px;
+  text-align: center;
 }
 
 .box-container {
@@ -63,7 +71,6 @@ h2 {
 
 .payment-box {
   padding: 10px;
-  text-align: center;
   width: 50%;
   height: auto;
   background-size: contain;
@@ -132,6 +139,7 @@ h2 {
 
 .card-input-container input {
   padding: 10px;
+  padding-right: 40px;
   border: 1px solid #ccc;
   border-radius: 10px;
   font-size: 1rem;
@@ -183,13 +191,13 @@ h2 {
   display: block;
 }
 
-.buy-now:hover {
+.buy-now:hover,
+.buy-now:focus-visible {
   background: linear-gradient(to left, #ff758c, #ff7eb3);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 .help-text {
-  font-size: 1rem;
   font-weight: bold; /* Optional for a bolder look */
   background: linear-gradient(to right, #fd7b46, #fe4e9b);
   -webkit-background-clip: text;
@@ -197,4 +205,5 @@ h2 {
   margin-top: 25px;
   margin-bottom: 35px;
   text-align: center;
+  display: block;
 }
