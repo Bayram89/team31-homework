@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <lin<k rel="stylesheet" href="css.style" />
+  </head>
+  <body>
+    <h1>Class Exercises</h1>
+    <h2>JS2 Week 1</h2>
+    <div class="box"></div>
+    <form>
+      <label for="firstname">First Name:</label>
+      <input type="text" id="firstname" name="firstname" />
+
+      <label for="surname">Surname:</label>
+      <input type="text" id="surname" name="surname" />
+      <button type="submit">Submit</button>
+
+      <button id="myButton">Click me</button>
+      <button id="toggleButton">Dark Mode</button>
+
+      <script>
+        const button = document.getElementById("myButton");
+
+        button.addEventListener("click", function () {
+          button.innerText = "Button clicked";
+        });
+        <button id="toggleButton">Dark Mode</button>;
+
+        const body = document.body;
+
+        button.addEventListener("click", function () {
+          if (body.style.backgroundColor === "black") {
+            // Switch to light mode
+            body.style.backgroundColor = "white";
+            body.style.color = "black";
+            button.innerText = "Dark Mode"; // Change button text
+          } else {
+            // Switch to dark mode
+            body.style.backgroundColor = "black";
+            body.style.color = "white";
+            button.innerText = "Light Mode"; // Change button text
+          }
+        });
+      </script>
+    </form>
+
+    <script src="exercise.js"></script>
+    <script src="podcast.js"></script>
+    <br />
+  </body>
+</html>
