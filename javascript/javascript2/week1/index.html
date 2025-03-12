@@ -1,0 +1,122 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Risalamande</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section id="intro">
+      <h1>Risalamande</h1>
+      <p>
+        Risalamande is the icing on the cake and the sweet conclusion to a
+        dinner on special days.
+      </p>
+      <p>
+        Every year, I look forward to homemade risalamande with crispy toasted
+        almonds and the vanilla flavor from the speckled vanilla beans.
+      </p>
+      <p>
+        My risalamande turns out especially delicious because the vanilla and
+        sugar simmer with the rice pudding.
+      </p>
+      <p>
+        This creates an amazing aroma and a flavor that is utterly irresistible.
+      </p>
+      <p>It’s SO delicious and tastes great when served with cherry sauce.</p>
+      <a href="#" class="link">Fetch my recipe with cherry sauce &gt;&gt;</a>
+    </section>
+    <br /><br />
+
+    <section id="recipe">
+      <div class="recipe-container">
+        <div class="recipe-info">
+          <h2>Risalamande</h2>
+          <p>
+            <strong>Preparation time:</strong> 30 mins |
+            <strong>Total time:</strong> 4 hours | <strong>Yield:</strong> 5-6
+            servings
+          </p>
+          <h3>Ingredients:</h3>
+          <ul id="ingredient-list">
+            <li>1 lt whole milk</li>
+            <li>180 gr rice porridge</li>
+            <li>1 vanilla pod</li>
+            <li>70 gr sugar</li>
+            <li>100 gr almonds</li>
+            <li>1 pinch salt</li>
+            <li>400 ml whipping cream</li>
+          </ul>
+          <button class="print-button">Print</button>
+          <button class="favourites-button">Add to favourites</button>
+        </div>
+        <div class="recipe-image">
+          <img
+            src="https://i.postimg.cc/yd7V5Fdp/IMG-8365-min-jpg.webp"
+            alt="Risalamande"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="instructions">
+      <h2>Instructions</h2>
+      <ol>
+        <h3>1. Cook the Rice:</h3>
+        <li>Put milk and rice in a pot. Slowly heat it up, stirring often.</li>
+        <li>
+          Turn the heat to low, stir for a few minutes, then cover with a lid.
+        </li>
+        <h3>2. Add Vanilla:</h3>
+        <li>
+          Scrape seeds from a vanilla pod and mix them with sugar. Add the
+          seeds, sugar, and the empty pod to the pot.
+        </li>
+        <li>
+          Stir and let it simmer gently for 45-50 minutes, stirring now and
+          then, until the rice is soft. Remove the vanilla pod.
+        </li>
+        <h3>3. Prepare Almonds:</h3>
+        <li>
+          Pour boiling water over almonds, let them sit for 10 minutes, then
+          drain.
+        </li>
+        <li>
+          Repeat with fresh boiling water for 2 minutes. Drain, peel, and chop
+          them.
+        </li>
+        <h3>4. Finish the Pudding:</h3>
+        <li>Mix the chopped almonds and a pinch of salt into the pudding.</li>
+        <li>Let it cool in the fridge for a few hours or overnight.</li>
+        <h3>5. Before Serving:</h3>
+        <li>
+          Whip cream until fluffy and fold it into the pudding. Serve cold.
+        </li>
+        <h4>
+          This makes a creamy, sweet rice pudding with a nice crunch from the
+          almonds!
+        </h4>
+      </ol>
+    </section>
+    <section id="recipe-2"></section>
+    <section id="add-new-recipes">
+      <h2>Add New Recipes</h2>
+      <form id="recipe-form">
+        <label for="recipe-name">Name of Recipe:</label>
+        <input type="text" id="recipe-name" required />
+        <label for="ingredients">Ingredients:</label>
+        <ul id="new-ingredients"></ul>
+        <input
+          type="text"
+          id="ingredient-input"
+          placeholder="Add ingredients"
+        />
+        <button type="button" id="add-ingredient">Add Ingredients</button>
+
+        <button type="submit">Add Recipe</button>
+      </form>
+    </section>
+
+    <script src="recipe-app.js"></script>
+  </body>
+</html>
