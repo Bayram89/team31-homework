@@ -62,36 +62,36 @@
     <section id="instructions">
       <h2>Instructions</h2>
       <ol>
-        <h3>1. Cook the Rice:</h3>
-        <li>Put milk and rice in a pot. Slowly heat it up, stirring often.</li>
-        <li>
-          Turn the heat to low, stir for a few minutes, then cover with a lid.
-        </li>
-        <h3>2. Add Vanilla:</h3>
-        <li>
-          Scrape seeds from a vanilla pod and mix them with sugar. Add the
+        <p>1. Put milk and rice in a pot. Slowly heat it up, stirring often.</p>
+        <p>
+          2. Turn the heat to low, stir for a few minutes, then cover with a
+          lid.
+        </p>
+        <p>
+          3. Scrape seeds from a vanilla pod and mix them with sugar. Add the
           seeds, sugar, and the empty pod to the pot.
-        </li>
-        <li>
-          Stir and let it simmer gently for 45-50 minutes, stirring now and
-          then, until the rice is soft. Remove the vanilla pod.
-        </li>
-        <h3>3. Prepare Almonds:</h3>
-        <li>
-          Pour boiling water over almonds, let them sit for 10 minutes, then
+        </p>
+
+        <p>
+          4. Stir and let it simmer for 45-50 minute until the rice is soft.
+          Remove the vanilla pod.
+        </p>
+
+        <p>
+          5. Pour boiling water over almonds, let them sit for 10 minutes, then
           drain.
-        </li>
-        <li>
-          Repeat with fresh boiling water for 2 minutes. Drain, peel, and chop
-          them.
-        </li>
-        <h3>4. Finish the Pudding:</h3>
-        <li>Mix the chopped almonds and a pinch of salt into the pudding.</li>
-        <li>Let it cool in the fridge for a few hours or overnight.</li>
-        <h3>5. Before Serving:</h3>
-        <li>
-          Whip cream until fluffy and fold it into the pudding. Serve cold.
-        </li>
+        </p>
+        <p>
+          6. Repeat with fresh boiling water for 2 minutes. Drain, peel, and
+          chop them.
+        </p>
+
+        <p>7. Mix the chopped almonds and a pinch of salt into the pudding.</p>
+        <p>8. Let it cool in the fridge for a few hours or overnight.</p>
+
+        <p>
+          9. Whip cream until fluffy and fold it into the pudding. Serve cold.
+        </p>
         <h4>
           This makes a creamy, sweet rice pudding with a nice crunch from the
           almonds!
@@ -102,25 +102,20 @@
     <section id="recipe-2"></section>
     <section id="popular-recipes">
       <h2>Popular Recipes</h2>
-      <div class="popular-recipe-container">
-        <div class="popular-recipe">
-          <h3 class="popular-recipe-title">Gløgg</h3>
-          <img
-            class="popular-img-url"
-            src="https://gourministeriet.dk/wp-content/uploads/2024/11/IMG_6017-scaled.jpg"
-            alt="Gløgg"
-          />
-          <ul class="popular-ingredients">
-            <li>500 ml orange zest</li>
-            <li>200 ml water</li>
-            <li>275 gr sugar</li>
-            <li>5 whole cloves</li>
-            <li>2 cinnamon sticks</li>
-            <li>100 gr raisins</li>
-            <li>50 gr slipped almonds</li>
-          </ul>
-        </div>
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search recipes..."
+        />
+        <button class="search-button">Search</button>
+        <select class="sort-select">
+          <option value="default">Sort by</option>
+          <option value="most">Most ingredients</option>
+          <option value="least">Least ingredients</option>
+        </select>
       </div>
+      <div class="popular-recipe-container"></div>
     </section>
 
     <section id="add-new-recipes">
@@ -142,5 +137,6 @@
     </section>
 
     <script src="recipe-app.js"></script>
+    <script src="popular-recipe.js"></script>
   </body>
 </html>
