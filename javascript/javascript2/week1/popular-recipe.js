@@ -107,11 +107,13 @@ function findRecipeByTitle(searchWord) {
 const searchInput = document.querySelector(".search-input");
 const searchButton = document.querySelector(".search-button");
 
-searchButton.addEventListener("click", () => {
+function searchWord() {
   const searchWord = searchInput.value;
   document.querySelector(".popular-recipe-container").innerHTML = "";
   findRecipeByTitle(searchWord);
-});
+}
+
+searchButton.addEventListener("click", searchWord);
 
 searchInput.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
