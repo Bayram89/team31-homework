@@ -6,29 +6,23 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <section id="intro">
+    <section class="intro">
       <h1>Risalamande</h1>
+      <p>Risalamande is my favorite way to end a special meal!</p>
       <p>
-        Risalamande is the icing on the cake and the sweet conclusion to a
-        dinner on special days.
+        Every year, I look forward to homemade risalamande with crunchy toasted
+        almonds and real vanilla.
       </p>
       <p>
-        Every year, I look forward to homemade risalamande with crispy toasted
-        almonds and the vanilla flavor from the speckled vanilla beans.
+        The secret?... Letting the vanilla and sugar simmer with the rice
+        pudding for the perfect flavor.
       </p>
-      <p>
-        My risalamande turns out especially delicious because the vanilla and
-        sugar simmer with the rice pudding.
-      </p>
-      <p>
-        This creates an amazing aroma and a flavor that is utterly irresistible.
-      </p>
-      <p>It’s SO delicious and tastes great when served with cherry sauce.</p>
+      <p>Topped with cherry sauce, it’s pure dessert perfection!</p>
       <a href="#" class="link">Fetch my recipe with cherry sauce &gt;&gt;</a>
     </section>
     <br /><br />
 
-    <section id="recipe">
+    <section class="recipe">
       <div class="recipe-container">
         <div class="recipe-info">
           <h2>Risalamande</h2>
@@ -38,7 +32,7 @@
             servings
           </p>
           <h3>Ingredients:</h3>
-          <ul id="ingredient-list">
+          <ul class="ingredient-list">
             <li>1 lt whole milk</li>
             <li>180 gr rice porridge</li>
             <li>1 vanilla pod</li>
@@ -52,31 +46,30 @@
         </div>
         <div class="recipe-image">
           <img
-            src="https://i.postimg.cc/yd7V5Fdp/IMG-8365-min-jpg.webp"
+            src="https://www.valdemarsro.dk/wp-content/2012/11/ris-ala-mande.jpg"
             alt="Risalamande"
           />
         </div>
       </div>
     </section>
 
-    <section id="instructions">
+    <section class="instructions">
       <h2>Instructions</h2>
       <ol>
-        <h3>1. Cook the Rice:</h3>
         <li>Put milk and rice in a pot. Slowly heat it up, stirring often.</li>
         <li>
           Turn the heat to low, stir for a few minutes, then cover with a lid.
         </li>
-        <h3>2. Add Vanilla:</h3>
         <li>
           Scrape seeds from a vanilla pod and mix them with sugar. Add the
           seeds, sugar, and the empty pod to the pot.
         </li>
+
         <li>
-          Stir and let it simmer gently for 45-50 minutes, stirring now and
-          then, until the rice is soft. Remove the vanilla pod.
+          Stir and let it simmer for 45-50 minute until the rice is soft.Remove
+          the vanilla pod.
         </li>
-        <h3>3. Prepare Almonds:</h3>
+
         <li>
           Pour boiling water over almonds, let them sit for 10 minutes, then
           drain.
@@ -85,10 +78,10 @@
           Repeat with fresh boiling water for 2 minutes. Drain, peel, and chop
           them.
         </li>
-        <h3>4. Finish the Pudding:</h3>
+
         <li>Mix the chopped almonds and a pinch of salt into the pudding.</li>
         <li>Let it cool in the fridge for a few hours or overnight.</li>
-        <h3>5. Before Serving:</h3>
+
         <li>
           Whip cream until fluffy and fold it into the pudding. Serve cold.
         </li>
@@ -98,25 +91,48 @@
         </h4>
       </ol>
     </section>
-    <section id="recipe-2"></section>
-    <section id="add-new-recipes">
-      <h2>Add New Recipes</h2>
-      <form id="recipe-form">
-        <label for="recipe-name">Name of Recipe:</label>
-        <input type="text" id="recipe-name" required />
-        <label for="ingredients">Ingredients:</label>
-        <ul id="new-ingredients"></ul>
+
+    <section class="recipe-2" id="recipe-2"></section>
+    <section class="popular-recipes">
+      <h2>Popular Recipes</h2>
+      <div class="search-container">
         <input
           type="text"
+          class="search-input"
+          placeholder="Search recipes..."
+        />
+        <button class="search-button">Search</button>
+        <select class="sort-select">
+          <option value="default">Sort by</option>
+          <option value="most">Most ingredients</option>
+          <option value="least">Least ingredients</option>
+        </select>
+      </div>
+      <div class="popular-recipe-container"></div>
+    </section>
+
+    <section class="add-new-recipes">
+      <h2>Add New Recipes</h2>
+      <form class="recipe-form" id="recipe-form">
+        <label for="recipe-name">Name of Recipe:</label>
+        <input type="text" class="recipe-name" required id="recipe-name" />
+        <label for="ingredients">Ingredients:</label>
+        <ul class="new-ingredients" id="new-ingredients"></ul>
+        <input
+          type="text"
+          class="ingredient-input"
           id="ingredient-input"
           placeholder="Add ingredients"
         />
-        <button type="button" id="add-ingredient">Add Ingredients</button>
+        <button type="button" class="add-ingredient" id="add-ingredient">
+          Add Ingredients
+        </button>
 
         <button type="submit">Add Recipe</button>
       </form>
     </section>
 
     <script src="recipe-app.js"></script>
+    <script src="popular-recipe.js"></script>
   </body>
 </html>

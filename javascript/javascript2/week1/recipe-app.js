@@ -4,7 +4,7 @@ document.querySelector(".print-button").addEventListener("click", function () {
 
 //  adding new ingredients
 document
-  .getElementById("add-ingredient")
+  .querySelector("#add-ingredient")
   .addEventListener("click", function () {
     let ingredientInput = document.getElementById("ingredient-input");
     let ingredientList = document.getElementById("new-ingredients");
@@ -56,10 +56,10 @@ const recipeObject = {
     { NAME: "50 gr slipped almonds" },
   ],
   description_list: [
-    "Gløgg is a beloved Nordic winter tradition, especially popular during winter.",
-    "This warming beverage originated in Sweden but is now enjoyed throughout Scandinavia.",
-    "The combination of spices and fruits creates a rich, aromatic drink that warms both body and soul.",
-    "Traditional gløgg is served with raisins and almonds that sink to the bottom of the cup.",
+    "Gløgg is my go-to winter drink—warm, spiced, and just the right amount of cozy. ",
+    "I first had it in Sweden and never looked back.",
+    "The best part? The raisins and almonds at the bottom, like a little treat with every cup. ",
+    "If you haven’t tried it, you’re missing out!",
   ],
   instructions: [
     "1. Bring water to boil in a large pot",
@@ -73,7 +73,7 @@ const recipeObject = {
   ],
 };
 
-// Gløgg Recipe
+// Creating Gløgg Recipe dynamically on JS
 const secondRecipeIntro = document.createElement("section");
 secondRecipeIntro.innerHTML = `
 <h1>${recipeObject.title}</h1>
@@ -92,7 +92,7 @@ secondRecipeSection.insertAdjacentElement("afterend", secondRecipeInstructions);
 
 const newRecipeDiv = document.createElement("div");
 newRecipeDiv.innerHTML = `
-<section id="recipe">
+<section class="recipe">
   <div class="recipe-container">
     <div class="recipe-info">
       <h2>${recipeObject.title}</h2>
@@ -102,7 +102,7 @@ newRecipeDiv.innerHTML = `
     servings
       </p>
       <h3>Ingredients:</h3>
-      <ul id="ingredient-list">
+      <ul class="ingredient-list">
     ${recipeObject.ingredients
       .map(
         (ingredient) =>
