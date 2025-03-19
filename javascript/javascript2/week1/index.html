@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <section id="intro">
+    <section class="intro">
       <h1>Risalamande</h1>
       <p>Risalamande is my favorite way to end a special meal!</p>
       <p>
@@ -22,7 +22,7 @@
     </section>
     <br /><br />
 
-    <section id="recipe">
+    <section class="recipe">
       <div class="recipe-container">
         <div class="recipe-info">
           <h2>Risalamande</h2>
@@ -32,7 +32,7 @@
             servings
           </p>
           <h3>Ingredients:</h3>
-          <ul id="ingredient-list">
+          <ul class="ingredient-list">
             <li>1 lt whole milk</li>
             <li>180 gr rice porridge</li>
             <li>1 vanilla pod</li>
@@ -53,39 +53,38 @@
       </div>
     </section>
 
-    <section id="instructions">
+    <section class="instructions">
       <h2>Instructions</h2>
       <ol>
-        <p>1. Put milk and rice in a pot. Slowly heat it up, stirring often.</p>
-        <p>
-          2. Turn the heat to low, stir for a few minutes, then cover with a
-          lid.
-        </p>
-        <p>
-          3. Scrape seeds from a vanilla pod and mix them with sugar. Add the
+        <li>Put milk and rice in a pot. Slowly heat it up, stirring often.</li>
+        <li>
+          Turn the heat to low, stir for a few minutes, then cover with a lid.
+        </li>
+        <li>
+          Scrape seeds from a vanilla pod and mix them with sugar. Add the
           seeds, sugar, and the empty pod to the pot.
-        </p>
+        </li>
 
-        <p>
-          4. Stir and let it simmer for 45-50 minute until the rice is soft.
-          Remove the vanilla pod.
-        </p>
+        <li>
+          Stir and let it simmer for 45-50 minute until the rice is soft.Remove
+          the vanilla pod.
+        </li>
 
-        <p>
-          5. Pour boiling water over almonds, let them sit for 10 minutes, then
+        <li>
+          Pour boiling water over almonds, let them sit for 10 minutes, then
           drain.
-        </p>
-        <p>
-          6. Repeat with fresh boiling water for 2 minutes. Drain, peel, and
-          chop them.
-        </p>
+        </li>
+        <li>
+          Repeat with fresh boiling water for 2 minutes. Drain, peel, and chop
+          them.
+        </li>
 
-        <p>7. Mix the chopped almonds and a pinch of salt into the pudding.</p>
-        <p>8. Let it cool in the fridge for a few hours or overnight.</p>
+        <li>Mix the chopped almonds and a pinch of salt into the pudding.</li>
+        <li>Let it cool in the fridge for a few hours or overnight.</li>
 
-        <p>
-          9. Whip cream until fluffy and fold it into the pudding. Serve cold.
-        </p>
+        <li>
+          Whip cream until fluffy and fold it into the pudding. Serve cold.
+        </li>
         <h4>
           This makes a creamy, sweet rice pudding with a nice crunch from the
           almonds!
@@ -93,8 +92,8 @@
       </ol>
     </section>
 
-    <section id="recipe-2"></section>
-    <section id="popular-recipes">
+    <section class="recipe-2" id="recipe-2"></section>
+    <section class="popular-recipes">
       <h2>Popular Recipes</h2>
       <div class="search-container">
         <input
@@ -112,19 +111,22 @@
       <div class="popular-recipe-container"></div>
     </section>
 
-    <section id="add-new-recipes">
+    <section class="add-new-recipes">
       <h2>Add New Recipes</h2>
-      <form id="recipe-form">
+      <form class="recipe-form" id="recipe-form">
         <label for="recipe-name">Name of Recipe:</label>
-        <input type="text" id="recipe-name" required />
+        <input type="text" class="recipe-name" required id="recipe-name" />
         <label for="ingredients">Ingredients:</label>
-        <ul id="new-ingredients"></ul>
+        <ul class="new-ingredients" id="new-ingredients"></ul>
         <input
           type="text"
+          class="ingredient-input"
           id="ingredient-input"
           placeholder="Add ingredients"
         />
-        <button type="button" id="add-ingredient">Add Ingredients</button>
+        <button type="button" class="add-ingredient" id="add-ingredient">
+          Add Ingredients
+        </button>
 
         <button type="submit">Add Recipe</button>
       </form>

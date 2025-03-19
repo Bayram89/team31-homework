@@ -4,7 +4,7 @@ document.querySelector(".print-button").addEventListener("click", function () {
 
 //  adding new ingredients
 document
-  .getElementById("add-ingredient")
+  .querySelector("#add-ingredient")
   .addEventListener("click", function () {
     let ingredientInput = document.getElementById("ingredient-input");
     let ingredientList = document.getElementById("new-ingredients");
@@ -92,7 +92,7 @@ secondRecipeSection.insertAdjacentElement("afterend", secondRecipeInstructions);
 
 const newRecipeDiv = document.createElement("div");
 newRecipeDiv.innerHTML = `
-<section id="recipe">
+<section class="recipe">
   <div class="recipe-container">
     <div class="recipe-info">
       <h2>${recipeObject.title}</h2>
@@ -102,7 +102,7 @@ newRecipeDiv.innerHTML = `
     servings
       </p>
       <h3>Ingredients:</h3>
-      <ul id="ingredient-list">
+      <ul class="ingredient-list">
     ${recipeObject.ingredients
       .map(
         (ingredient) =>

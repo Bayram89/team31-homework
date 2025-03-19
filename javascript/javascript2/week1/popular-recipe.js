@@ -76,14 +76,14 @@ function renderPopularRecipes(recipes) {
   const container = document.querySelector(".popular-recipe-container");
 
   recipes.forEach((recipe) => {
-    const recipeDiv = document.createElement("div");
-    recipeDiv.className = "popular-recipe";
+    const recipeCard = document.createElement("div");
+    recipeCard.className = "popular-recipe";
 
     const ingredientsList = recipe.ingredients
       .map((ingredient) => `<li>${ingredient}</li>`)
       .join("");
 
-    recipeDiv.innerHTML = `
+    recipeCard.innerHTML = `
             <h3 class="popular-recipe-title">${recipe.title}</h3>
             <img class="popular-img-url" src="${recipe.imageUrl}" alt="${recipe.title}" />
             <ul class="popular-ingredients">
@@ -91,7 +91,7 @@ function renderPopularRecipes(recipes) {
             </ul>
         `;
 
-    container.appendChild(recipeDiv);
+    container.appendChild(recipeCard);
   });
 }
 renderPopularRecipes(popularRecipes);
