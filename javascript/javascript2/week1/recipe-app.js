@@ -126,16 +126,63 @@ newRecipeDiv.innerHTML = `
 `;
 secondRecipeSection.appendChild(newRecipeDiv);
 
-// Print button
 newRecipeDiv
   .querySelector(".print-button")
   .addEventListener("click", function () {
     window.print();
   });
 
-// Add to Favourites button
 newRecipeDiv
   .querySelector(".favourites-button")
   .addEventListener("click", function () {
     alert("Added to favourites!");
   });
+
+const startTimerBtn = document.getElementById("start-timer");
+const minutesInput = document.getElementById("minutes");
+const timerDisplay = document.getElementById("timer-display");
+
+startTimerBtn.addEventListener("click", function () {
+  // getting minutes from input and convert to seconds
+  const minutes = minutesInput.value;
+  const seconds = minutes * 60;
+
+  // deactivating the start button
+  this.disabled = true;
+
+  // keeping track of remaining time
+  let timeLeft = seconds;
+
+  // updating timer every second
+  const timer = setInterval(function () {
+    // calculating minutes and seconds to show
+    const minutesLeft = Math.floor(timeLeft / 60);
+    const secondsLeft = timeLeft % 60;
+
+    timerDisplay.textContent =
+      "Time Remaining: " + minutesLeft + ":" + secondsLeft;
+
+    timeLeft--;
+
+    // checking if timer is finished
+    if (timeLeft < 0) {
+      clearInterval(timer);
+      alert("Time is up!");
+      timerDisplay.textContent = "Timer finished";
+      startTimerBtn.disabled = false;
+    }
+  }, 1000);
+});
+
+// timer for tracking time spent on page
+let seconds = 0;
+const activeTimeDisplay = document.getElementById("active-time");
+
+const updateTimeSpent = setInterval(() => {
+  seconds++;
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  activeTimeDisplay.textContent = `${minutes
+    .toString()
+    .padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
+}, 1000);
