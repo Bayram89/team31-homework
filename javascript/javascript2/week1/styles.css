@@ -284,7 +284,7 @@ ul li {
   text-align: center;
 }
 
-#minutes {
+.minutes {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -294,14 +294,14 @@ ul li {
   transition: border-color 0.3s ease;
 }
 
-#minutes:hover,
-#minutes:focus {
+.minutes:hover,
+.minutes:focus {
   border-color: #b33a3a;
   box-shadow: 0 0 5px rgba(179, 58, 58, 0.2);
   outline: none;
 }
 
-#start-timer {
+.start-timer {
   background: #b33a3a;
   color: white;
   padding: 12px 20px;
@@ -312,11 +312,11 @@ ul li {
   transition: background-color 0.3s ease;
 }
 
-#start-timer:hover {
+.start-timer:hover {
   background: #942f2f;
 }
 
-#timer-display {
+.timer-display {
   font-size: 2em;
   margin-top: 20px;
   color: #333;
@@ -325,8 +325,8 @@ ul li {
 
 .timer-overlay {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  bottom: 20px;
+  right: 20px;
   background: rgba(255, 255, 255, 0.95);
   padding: 15px;
   border-radius: 8px;
@@ -334,17 +334,19 @@ ul li {
   z-index: 1000;
 }
 
-.time-spent {
+.time-spent-title {
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
   text-align: center;
 }
 
-.time-spent h3 {
-  margin: 0 0 10px 0;
-  font-size: 1.1em;
-}
-
-#active-time {
+.active-time {
   font-size: 1.5em;
   font-weight: bold;
   color: #b33a3a;
+}
+
+.start-timer.disabled {
+  background: #ccc;
+  cursor: not-allowed;
 }

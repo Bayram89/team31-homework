@@ -143,12 +143,18 @@ const minutesInput = document.getElementById("minutes");
 const timerDisplay = document.getElementById("timer-display");
 
 startTimerBtn.addEventListener("click", function () {
+  // Validate input
+  if (!minutesInput.value || minutesInput.value <= 0) {
+    alert("Please enter a valid number greater than 0!");
+    return;
+  }
   // getting minutes from input and convert to seconds
   const minutes = minutesInput.value;
   const seconds = minutes * 60;
 
-  // deactivating the start button
+  // deactivating the start button and adding visual feedback
   this.disabled = true;
+  this.classList.add("disabled");
 
   // keeping track of remaining time
   let timeLeft = seconds;
@@ -159,8 +165,7 @@ startTimerBtn.addEventListener("click", function () {
     const minutesLeft = Math.floor(timeLeft / 60);
     const secondsLeft = timeLeft % 60;
 
-    timerDisplay.textContent =
-      "Time Remaining: " + minutesLeft + ":" + secondsLeft;
+    timerDisplay.textContent = `Time Remaining: ${minutesLeft}:${secondsLeft}`;
 
     timeLeft--;
 
@@ -170,6 +175,7 @@ startTimerBtn.addEventListener("click", function () {
       alert("Time is up!");
       timerDisplay.textContent = "Timer finished";
       startTimerBtn.disabled = false;
+      startTimerBtn.classList.remove("disabled");
     }
   }, 1000);
 });
@@ -182,7 +188,13 @@ const updateTimeSpent = setInterval(() => {
   seconds++;
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
-  activeTimeDisplay.textContent = `${minutes
-    .toString()
-    .padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
+
+  // converting numbers to strings and after this adding leading zero if it's really the case
+  const formattedMinutes = minutes < 10 ? "0" + minutes : minutes.toString();
+  const formattedSeconds =
+    remainingSeconds < 10
+      ? "0" + remainingSeconds
+      : remainingSeconds.toString();
+
+  activeTimeDisplay.textContent = `${formattedMinutes}:${formattedSeconds}`;
 }, 1000);
