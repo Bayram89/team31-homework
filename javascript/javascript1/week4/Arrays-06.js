@@ -18,7 +18,7 @@ for (const food of favFoods) {
 function sumArray(numbers) {
   let sum = 0;
   for (const num of numbers) {
-    sum = sum + num;
+    sum += num;
   }
   return sum;
 }

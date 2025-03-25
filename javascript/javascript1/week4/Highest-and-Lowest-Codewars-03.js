@@ -1,6 +1,7 @@
+console.log("I am here");
 function highAndLow(numbers) {
-  let numArray = numbers.split(" ");
-  let numList = numArray.map(Number);
+  let numList = numbers.split(" ").map(Number);
+
   let highest = Math.max(...numList);
   let lowest = Math.min(...numList);
   return highest + " " + lowest;
