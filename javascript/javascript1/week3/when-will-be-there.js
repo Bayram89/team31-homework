@@ -1,6 +1,10 @@
+console.log("I'm here");
 function calculateTravelTime(travelInfo) {
-  const timeInHours = travelInfo.destinationDistance / travelInfo.speed;
+  if (travelInfo.speed <= 0 || travelInfo.destinationDistance <= 0) {
+    return "Speed and distance must be positive numbers";
+  }
 
+  const timeInHours = travelInfo.destinationDistance / travelInfo.speed;
   const hours = Math.floor(timeInHours);
   const minutes = Math.floor((timeInHours - hours) * 60);
   return formatTime(hours, minutes);

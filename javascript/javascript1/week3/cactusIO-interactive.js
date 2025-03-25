@@ -1,7 +1,7 @@
 console.log("------>>> Smart phone usage app <<<------");
 
-let activities = [];
-let usageLimit = 100;
+const activities = [];
+const usageLimit = 100;
 
 function addActivity(date, activity, duration) {
   activities.push({ date, activity, duration });
