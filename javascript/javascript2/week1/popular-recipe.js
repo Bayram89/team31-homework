@@ -9,18 +9,25 @@ function fetchPopularRecipes() {
     .then((arrayOfRecipes) => {
       popularRecipes = arrayOfRecipes;
       renderPopularRecipes(popularRecipes);
+    })
+    .catch((error) => {
+      console.error("Error fetching recipes:", error);
     });
 }
 
 async function fetchPopularRecipesAsyncAwait() {
-  const response = await fetch(recipesUrl);
-  if (!response.ok) {
-    console.error("Network response was not ok", response.statusText);
-    return;
+  try {
+    const response = await fetch(recipesUrl);
+    if (!response.ok) {
+      console.error("Network response was not ok", response.statusText);
+      return;
+    }
+    const arrayOfRecipes = await response.json();
+    popularRecipes = arrayOfRecipes;
+    renderPopularRecipes(popularRecipes);
+  } catch (error) {
+    console.error("Error fetching recipes:", error);
   }
-  const arrayOfRecipes = await response.json();
-  popularRecipes = arrayOfRecipes;
-  renderPopularRecipes(popularRecipes);
 }
 
 fetchPopularRecipesAsyncAwait();
