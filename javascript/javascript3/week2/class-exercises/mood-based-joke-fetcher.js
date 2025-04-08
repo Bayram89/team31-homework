@@ -1,6 +1,6 @@
 const button = document.getElementById("get-mood-joke"); // Here we get the button element from the DOM
 const moodSelect = document.getElementById("mood"); // Here is the mood drop
-const output = document.getElementById("output"); // Here is where we show a joke
+const outputMood = document.getElementById("output-mood"); // Here is where we show a joke
 
 function displayMessage(text, isError = false) {
   output.innerHTML = "";
