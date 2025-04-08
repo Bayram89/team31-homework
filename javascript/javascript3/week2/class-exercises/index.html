@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escape Room</title>
+  </head>
+  <body>
+    <!-- Task 1: Escape Room -->
+    <button id="start">Start Escape Room</button>
+    <div id="output-escape"></div>
+
+    <!-- Task 2: Mood Joke -->
+    <button id="get-mood-joke">Get Mood Joke</button>
+    <select id="mood">
+      <option value="good">Good Mood</option>
+      <option value="bad">Bad Mood</option>
+    </select>
+    <div id="output-mood"></div>
+
+    <!-- Task 3: Guess the Secret Number -->
+    <input
+      type="number"
+      id="guess-number"
+      placeholder="Enter a number (1-5)"
+      min="1"
+      max="5"
+    />
+    <button id="submit-guess">Guess</button>
+    <div id="output-guess"></div>
+
+    <script src="callback-maze.js"></script>
+    <script src="mood-based-joke-fetcher.js"></script>
+    <script src="guess-the-secret-number.js"></script>
+  </body>
+</html>

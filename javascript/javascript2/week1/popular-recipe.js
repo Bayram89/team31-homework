@@ -1,15 +1,36 @@
+const recipesUrl =
+  "https://raw.githubusercontent.com/Bayram89/Bayram89.github.io/refs/heads/main/recipes.json";
+
 let popularRecipes = [];
+
 function fetchPopularRecipes() {
-  fetch(
-    "https://raw.githubusercontent.com/Bayram89/Bayram89.github.io/refs/heads/main/recipes.json"
-  )
+  fetch(recipesUrl)
     .then((response) => response.json())
     .then((arrayOfRecipes) => {
       popularRecipes = arrayOfRecipes;
       renderPopularRecipes(popularRecipes);
+    })
+    .catch((error) => {
+      console.error("Error fetching recipes:", error);
     });
 }
-fetchPopularRecipes();
+
+async function fetchPopularRecipesAsyncAwait() {
+  try {
+    const response = await fetch(recipesUrl);
+    if (!response.ok) {
+      console.error("Network response was not ok", response.statusText);
+      return;
+    }
+    const arrayOfRecipes = await response.json();
+    popularRecipes = arrayOfRecipes;
+    renderPopularRecipes(popularRecipes);
+  } catch (error) {
+    console.error("Error fetching recipes:", error);
+  }
+}
+
+fetchPopularRecipesAsyncAwait();
 
 function renderPopularRecipes(recipes) {
   const container = document.querySelector(".popular-recipe-container");
