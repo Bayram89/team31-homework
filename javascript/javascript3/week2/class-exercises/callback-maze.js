@@ -1,37 +1,41 @@
-console.log("Setting up Room 1");
-document.getElementById("start").addEventListener("click", function () {
-  setTimeout(function () {
-    document.getElementById("output").innerText = "Entered Room 1";
+const startButton = document.getElementById("start");
+const output = document.getElementById("output-escape");
 
-    console.log("Setting up Room 2");
-    setTimeout(function () {
-      document.getElementById("output").innerText = "Found a key in Room 2";
+function setupRoom1() {
+  console.log("Setting up Room 1");
+  setTimeout(enterRoom1, 1000);
+}
 
-      console.log("Setting up Room 3");
-      document.getElementById("start").addEventListener(
-        "click",
-        function () {
-          setTimeout(function () {
-            document.getElementById("output").innerText = "Unlocked Room 3";
+function enterRoom1() {
+  output.innerText = "Entered Room 1";
+  console.log("Setting up Room 2");
+  setTimeout(enterRoom2, 1500);
+}
 
-            console.log("Setting up Room 4");
-            setTimeout(function () {
-              document.getElementById("output").innerText =
-                "Press any key to escape!";
+function enterRoom2() {
+  output.innerText = "Found a key in Room 2";
+  console.log("Setting up Room 3");
+  startButton.addEventListener("click", onSecondClick, { once: true });
+}
 
-              document.addEventListener(
-                "keydown",
-                function () {
-                  document.getElementById("output").innerText =
-                    "Escaped the room!";
-                },
-                { once: true }
-              );
-            }, 1000);
-          }, 2000);
-        },
-        { once: true }
-      );
-    }, 1500);
-  }, 1000);
-});
+function onSecondClick() {
+  setTimeout(unlockRoom3, 2000);
+}
+
+function unlockRoom3() {
+  output.innerText = "Unlocked Room 3";
+  console.log("Setting up Room 4");
+  setTimeout(promptEscape, 1000);
+}
+
+function promptEscape() {
+  output.innerText = "Press any key to escape!";
+  document.addEventListener("keydown", escapeRoom, { once: true });
+}
+
+function escapeRoom() {
+  output.innerText = "Escaped the room!";
+}
+
+// This is our initial event listener
+startButton.addEventListener("click", setupRoom1);
