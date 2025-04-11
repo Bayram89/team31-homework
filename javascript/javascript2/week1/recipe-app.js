@@ -1,7 +1,3 @@
-document.querySelector(".print-button").addEventListener("click", function () {
-  window.print();
-});
-
 //  adding new ingredients
 document
   .querySelector("#add-ingredient")
@@ -38,106 +34,6 @@ document
     document.getElementById("new-ingredients").innerHTML = "";
   });
 
-const recipeObject = {
-  id: 1,
-  title: "Gløgg",
-  picture_url:
-    "https://gourministeriet.dk/wp-content/uploads/2024/11/IMG_6017-scaled.jpg",
-  description:
-    "Gløgg is a traditional Scandinavian mulled wine drink, perfect for cold winter days. This warm, spiced beverage combines the flavors of orange, cinnamon, and cloves with raisins and almonds for a festive holiday treat.",
-  ingredients: [
-    { NAME: "500 ml orange zest" },
-    { NAME: "200 ml water" },
-    { NAME: "275 gr sugar" },
-    { NAME: "5 whole cloves" },
-    { NAME: "2 cinnamon sticks" },
-    { NAME: "Spice", AMOUNT: undefined },
-    { NAME: "100 gr raisins" },
-    { NAME: "50 gr slipped almonds" },
-  ],
-  description_list: [
-    "Gløgg is my go-to winter drink—warm, spiced, and just the right amount of cozy. ",
-    "I first had it in Sweden and never looked back.",
-    "The best part? The raisins and almonds at the bottom, like a little treat with every cup. ",
-    "If you haven’t tried it, you’re missing out!",
-  ],
-  instructions: [
-    "1. Bring water to boil in a large pot",
-    "2. Add sugar and stir until dissolved",
-    "3. Add orange zest, cloves, and cinnamon sticks",
-    "4. Simmer on low heat for 30 minutes",
-    "5. Add spices and continue simmering for 10 minutes",
-    "6. Add raisins and almonds",
-    "7. Heat through for 5 minutes",
-    "8. Serve hot in mugs",
-  ],
-};
-
-// Creating Gløgg Recipe dynamically on JS
-const secondRecipeIntro = document.createElement("section");
-secondRecipeIntro.innerHTML = `
-<h1>${recipeObject.title}</h1>
-${recipeObject.description_list.map((desc) => `<p>${desc}</p>`).join("")}
-`;
-const secondRecipeInstructions = document.createElement("section");
-secondRecipeInstructions.innerHTML = `
-<h2>Instructions</h2>
-${recipeObject.instructions.map((desc) => `<p>${desc}</p>`).join("")}
-
-`;
-
-const secondRecipeSection = document.getElementById("recipe-2");
-secondRecipeSection.insertAdjacentElement("beforebegin", secondRecipeIntro);
-secondRecipeSection.insertAdjacentElement("afterend", secondRecipeInstructions);
-
-const newRecipeDiv = document.createElement("div");
-newRecipeDiv.innerHTML = `
-<section class="recipe">
-  <div class="recipe-container">
-    <div class="recipe-info">
-      <h2>${recipeObject.title}</h2>
-      <p>
-    <strong>Preparation time:</strong> 30 mins |
-    <strong>Total time:</strong> 4 hours | <strong>Yield:</strong> 5-6
-    servings
-      </p>
-      <h3>Ingredients:</h3>
-      <ul class="ingredient-list">
-    ${recipeObject.ingredients
-      .map(
-        (ingredient) =>
-          `<li>${ingredient.NAME}${
-            ingredient.AMOUNT ? ": " + ingredient.AMOUNT : ""
-          }</li>`
-      )
-      .join("")}
-      </ul>
-      <button class="print-button">Print</button>
-      <button class="favourites-button">Add to favourites</button>
-    </div>
-    <div class="recipe-image">
-      <img
-    src="${recipeObject.picture_url}"
-    alt="${recipeObject.title}"
-      />
-    </div>
-  </div>
-    </section>
-`;
-secondRecipeSection.appendChild(newRecipeDiv);
-
-newRecipeDiv
-  .querySelector(".print-button")
-  .addEventListener("click", function () {
-    window.print();
-  });
-
-newRecipeDiv
-  .querySelector(".favourites-button")
-  .addEventListener("click", function () {
-    alert("Added to favourites!");
-  });
-
 const startTimerBtn = document.getElementById("start-timer");
 const minutesInput = document.getElementById("minutes");
 const timerDisplay = document.getElementById("timer-display");
@@ -161,7 +57,7 @@ startTimerBtn.addEventListener("click", function () {
 
   // updating timer every second
   const timer = setInterval(function () {
-    // calculating minutes and seconds to show
+  // calculating minutes and seconds to show
     const minutesLeft = Math.floor(timeLeft / 60);
     const secondsLeft = timeLeft % 60;
 
@@ -181,6 +77,7 @@ startTimerBtn.addEventListener("click", function () {
 });
 
 // timer for tracking time spent on page
+document.addEventListener("DOMContentLoaded", function () {
 let seconds = 0;
 const activeTimeDisplay = document.getElementById("active-time");
 
@@ -198,3 +95,4 @@ const updateTimeSpent = setInterval(() => {
 
   activeTimeDisplay.textContent = `${formattedMinutes}:${formattedSeconds}`;
 }, 1000);
+});
