@@ -390,3 +390,59 @@ ORDER BY id DESC LIMIT 1;
 
 INSERT INTO albums (name, release_year, band_id)
 VALUES ('Taleal Bedru Aleyna', 622, 8);
+
+  SELECT id FROM albums
+  ORDER BY id DESC LIMIT 1;
+
+# Just looking at the albums table and asking for just the id of each album. Got it ... there are 19 currently!
+  SELECT id FROM albums;
+
+  # So I can see that the id of the album I just inserted is 19.
+  SELECT id FROM albums
+  ORDER BY id DESC LIMIT 1; 
+  # LIMIT 1 only shows the first row after sorting — which is the last album I added.
+  # This is the highest ID number, 19, (aka. most recently added)
+
+# 9. Delete the Band and Album you added in #8
+DELETE FROM albums
+WHERE id = 19;
+
+# Deleting the album before the band is the correct order, because albums have a “foreign key” to bands which means that the album is dependent on the band.
+# So if I delete the band first, it will not be able to delete the album because it is dependent on the band.
+  
+SELECT id FROM bands
+ORDER BY id DESC LIMIT 1;
+
+DELETE FROM bands
+WHERE id = 8;
+# Deleting the band I just added, which is the last one in the list.
+
+SELECT * FROM songs;
+
+# 10. Get the Average Length of all Songs
+SELECT AVG(length) As 'Avarage Song Length'
+FROM songs;
+
+# 11. Select the longest Song of each Album
+SELECT
+albums.name AS Album,
+albums.release_year AS 'Release Year',
+MAX(songs.length) AS Duration
+FROM albums
+JOIN songs ON albums.id = songs.album_id
+GROUP BY albums.id;
+# Just learning that Group results by album means that I can get the longest song per album, not just overall.
+
+# 12. Get the number of Songs for each Band
+SELECT
+bands.name AS Band,
+COUNT(songs.id) AS 'Number of Songs'
+FROM bands
+JOIN albums ON bands.id = albums.band_id
+JOIN songs ON albums.id = songs.album_id
+GROUP BY bands.id;
+
+# To see each band name, and then count how many songs are linked to that band is the goal.
+# I use the band_id to JOIN albums table to bands. So I get which albums belong to which band.
+# Then I use album_id to JOIN songs to albums. So I get all songs that belong to each album.
+# Then I group ALL THE SONGS by band id (each band), so I can count how many songs belong to each band.
