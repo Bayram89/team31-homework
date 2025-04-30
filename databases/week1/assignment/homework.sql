@@ -8,10 +8,16 @@ SELECT COUNT(*) FROM task;
 SELECT COUNT(*) FROM task WHERE due_date IS NULL;
 
 # 3. Find all the tasks that are marked as done
-SELECT * FROM task WHERE status_id = 3;
+SELECT task.*
+FROM task
+JOIN status ON task.status_id = status.id
+WHERE status.name = 'done';
 
 # 4. Find all the tasks that are not marked as done
-SELECT * FROM task WHERE status_id != 3;
+SELECT task.*
+FROM task
+JOIN status ON task.status_id = status.id
+WHERE status.name != 'done';
 
 # 5. Get all the tasks, sorted with the most recently created first
 SELECT * FROM task ORDER BY created DESC;
