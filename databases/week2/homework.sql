@@ -49,3 +49,48 @@ WHERE LANGUAGE = 'English';
 SELECT COUNTRYCODE, LANGUAGE, PERCENTAGE
 FROM COUNTRYLANGUAGE
 WHERE COUNTRYCODE = 'USA';
+
+
+# Part 1: Working with tasks
+# from https://github.com/HackYourFuture-CPH/databases/tree/main/lesson2
+USE test_db;
+
+SELECT * FROM task;
+
+INSERT INTO task (title, description, created, updated, due_date, status_id, user_id)
+VALUES ('Task Title', 'Task Description', '2025-05-02', '2025-05-02', '2025-05-10', 1, 1);
+
+UPDATE task
+SET title = 'New Task Title'
+WHERE id = 1;
+
+USE test_db;
+SELECT * FROM task;
+
+SELECT title, description, created, updated, due_date, status_id, user_id
+FROM task;
+
+UPDATE task
+SET due_date = '2025-05-15'
+WHERE id = 1;
+
+SELECT due_date
+FROM task;
+
+UPDATE task
+SET status_id = 2
+WHERE id = 1;
+
+SELECT title, description, created, updated, due_date, status_id, user_id
+FROM task;
+
+UPDATE task
+SET status_id = 3
+WHERE id = 1;
+
+DELETE FROM task
+WHERE id = 9;
+
+SELECT title, description, created, updated, due_date, status_id, user_id
+FROM task;
+
