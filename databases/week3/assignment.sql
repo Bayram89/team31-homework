@@ -57,3 +57,35 @@ SELECT * FROM Reservation WHERE id = 1;
 UPDATE Reservation
 SET number_of_guests = 5, contact_phonenumber = '0987654321'
 WHERE id = 1;
+
+SELECT * FROM Review;
+
+INSERT INTO Review (id, title, description, stars, created_date)
+VALUES (1, 'Great Experience', 'The meal was delicious and the service was excellent.', 5, '2023-11-03');
+
+SELECT * FROM Review WHERE id = 1;
+
+UPDATE Review
+SET stars = 4, description = 'The meal was good but the service could be improved.'
+WHERE id = 1;
+
+# Additionals
+
+UPDATE Review
+SET stars = 4, description = 'The meal was good but the service could be improved.'
+WHERE id = 1;
+
+SELECT m.*
+FROM Meal m
+LEFT JOIN Reservation r ON m.id = r.meal_id
+GROUP BY m.id
+HAVING COUNT(r.id) < m.max_reservations;
+
+SELECT * FROM Meal WHERE title LIKE '%Rød grød med%';
+
+SELECT * FROM Meal WHERE created_date BETWEEN '2023-10-01' AND '2023-10-31';
+
+SELECT * FROM Meal LIMIT 5;
+
+
+SELECT * FROM Reservation WHERE meal_id = 1 ORDER BY created_date;
