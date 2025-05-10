@@ -34,24 +34,42 @@ fetchPopularRecipesAsyncAwait();
 
 function renderPopularRecipes(recipes) {
   const container = document.querySelector(".popular-recipe-container");
+  container.innerHTML = ""; // Clear the container before rendering
 
   recipes.forEach((recipe) => {
-    const recipeCard = document.createElement("div");
-    recipeCard.className = "popular-recipe";
+    const recipeDiv = document.createElement("div");
+    recipeDiv.innerHTML = `
+      <section class="recipe">
+      <div class="recipe-container">
+        <div class="recipe-info">
+        <h2>${recipe.title}</h2>
+        <p><strong>Preparation time:</strong> ${recipe.preparation_time} |
+           <strong>Total time:</strong> ${recipe.total_time} |
+           <strong>Yield:</strong> ${recipe.yield}</p>
+        <h3>Ingredients:</h3>
+        <ul class="ingredient-list">
+          ${recipe.ingredients
+            .map(
+              (ing) =>
+                `<li>${ing.NAME}${ing.AMOUNT ? ": " + ing.AMOUNT : ""}</li>`
+            )
+            .join("")}
+        </ul>
+       
+        <button class="favourites-button">Add to favourites</button>
+        </div>
+        <div class="recipe-image">
+        <img src="${recipe.picture_url}" alt="${recipe.title}" />
+        </div>
+      </div>
+      </section>
+    `;
 
-    const ingredientsList = recipe.ingredients
-      .map((ingredient) => `<li>${ingredient}</li>`)
-      .join("");
+    recipeDiv
+      .querySelector(".favourites-button")
+      .addEventListener("click", () => alert("Added to favourites!"));
 
-    recipeCard.innerHTML = `
-            <h3 class="popular-recipe-title">${recipe.title}</h3>
-            <img class="popular-img-url" src="${recipe.imageUrl}" alt="${recipe.title}" />
-            <ul class="popular-ingredients">
-                ${ingredientsList}
-            </ul>
-        `;
-
-    container.appendChild(recipeCard);
+    container.appendChild(recipeDiv);
   });
 }
 
