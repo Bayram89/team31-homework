@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS meal_sharing;
+USE meal_sharing;
 # Meals Table
 CREATE TABLE Meal (
     id INT PRIMARY KEY AUTO_INCREMENT,
