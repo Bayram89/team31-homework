@@ -1,5 +1,6 @@
 CREATE DATABASE IF NOT EXISTS meal_sharing;
 USE meal_sharing;
+
 # Meals Table
 CREATE TABLE Meal (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -35,59 +36,196 @@ CREATE TABLE Review (
     FOREIGN KEY (meal_id) REFERENCES Meal(id)
 );
 
-# Queries about Meal table
+USE meal_sharing;
 
-SELECT * FROM Meal;
-INSERT INTO Meal (id, title, description, location, `when`, max_reservations, price, created_date)
-VALUES (1, 'Pasta Night', 'Enjoy a variety of pasta dishes.', 'Rome', '2023-12-01 18:00:00', 20, 25.99, '2023-11-01');
-
-SELECT * FROM Meal WHERE id = 1;
-
-UPDATE Meal
-SET title = 'Italian Pasta Night', price = 29.99
-WHERE id = 1;
-
-DELETE FROM Meal WHERE id = 1;
-
-# Queries about Reservation table
 SELECT * FROM Reservation;
-INSERT INTO Reservation (id, number_of_guests, created_date, contact_phonenumber, contact_name, contact_email)
-VALUES (1, 4, '2023-11-02', '1234567890', 'John Doe', 'john.doe@example.com');
-
-SELECT * FROM Reservation WHERE id = 1;
-
-UPDATE Reservation
-SET number_of_guests = 5, contact_phonenumber = '0987654321'
-WHERE id = 1;
 
 SELECT * FROM Review;
 
-INSERT INTO Review (id, title, description, stars, created_date)
-VALUES (1, 'Great Experience', 'The meal was delicious and the service was excellent.', 5, '2023-11-03');
+SELECT * FROM Meal;
 
-SELECT * FROM Review WHERE id = 1;
+# Queries about Meal table
+INSERT INTO Meal (id, title, description, location, `when`, max_reservations, price, created_date) VALUES
+(1, 'Pasta Night', 'Delicious Italian pasta dishes', 'Downtown Restaurant', '2023-10-01 19:00:00', 20, 15.99, '2023-09-20'),
+(2, 'Sushi Feast', 'Fresh sushi and sashimi', 'Sakura Sushi Bar', '2023-10-02 18:30:00', 15, 25.50, '2023-09-21'),
+(3, 'BBQ Party', 'Grilled meats and sides', 'Backyard BBQ Spot', '2023-10-03 17:00:00', 30, 20.00, '2023-09-22'),
+(4, 'Vegan Delight', 'Plant-based gourmet meals', 'Green Earth Cafe', '2023-10-04 18:00:00', 25, 18.75, '2023-09-23'),
+(5, 'Seafood Extravaganza', 'Fresh seafood platters', 'Ocean Breeze Restaurant', '2023-10-05 19:30:00', 20, 30.00, '2023-09-24'),
+(6, 'Taco Tuesday', 'Authentic Mexican tacos', 'Taco Truck', '2023-10-06 19:00:00', 40, 12.50, '2023-09-25'),
+(7, 'Indian Curry Night', 'Spicy Indian curries and naan', 'Curry House', '2023-10-07 18:00:00', 20, 22.00, '2023-09-26'),
+(8, 'French Bistro Evening', 'Classic French dishes and wine', 'Paris Bistro', '2023-10-08 19:30:00', 15, 35.00, '2023-09-27');
+
+SELECT * FROM Meal;
+
+# Changing some of the meal data
+UPDATE Meal
+SET `when` = '2024-09-05 20:30:00'
+WHERE id = 2;
+
+UPDATE Meal
+SET `when` = '2024-10-05 16:30:00'
+WHERE id = 4;
+
+UPDATE Meal
+SET `when` = '2024-10-05 17:00:00'
+WHERE id = 5;
+
+SELECT * FROM Meal;
+
+# Adding new meals
+INSERT INTO Meal (title, description, location, `when`, max_reservations, price, created_date) VALUES
+('Taco Tuesday', 'Authentic Mexican tacos', 'Taco Truck', '2023-10-06 19:00:00', 40, 12.50, '2023-09-25'),
+('Indian Curry Night', 'Spicy Indian curries and naan', 'Curry House', '2023-10-07 18:00:00', 20, 22.00, '2023-09-26'),
+('French Bistro Evening', 'Classic French dishes and wine', 'Paris Bistro', '2023-10-08 19:30:00', 15, 35.00, '2023-09-27');
+
+# Getting a meal with id 5
+SELECT title
+FROM Meal
+WHERE id = 5;
+
+# Updating a meal with id 7
+UPDATE Meal
+SET title = 'Updated Indian Curry Night', description = 'Authentic Indian curries and naan bread'
+WHERE id = 7;
+
+# Reservation Table
+SELECT * FROM Reservation;
+
+INSERT INTO Reservation (number_of_guests, meal_id, created_date, contact_phonenumber, contact_name, contact_email)
+VALUES 
+(4, 1, '2023-09-30', '1234567890', 'John Doe', 'johndoe@example.com'),
+(2, 2, '2023-09-30', '9876543210', 'Jane Smith', 'janesmith@example.com'),
+(3, 3, '2023-09-30', '5551234567', 'Alice Johnson', 'alicejohnson@example.com'),
+(5, 4, '2023-09-30', '4449876543', 'Bob Brown', 'bobbrown@example.com'),
+(1, 5, '2023-09-30', '3335557777', 'Charlie White', 'charliewhite@example.com');
+
+# Get a reservation with id 8
+SELECT * 
+FROM reservation
+WHERE id = 8;
+
+UPDATE reservation
+SET number_of_guests = 6
+WHERE id = 8;
+
+# Review Table
+SELECT * FROM Review;
+
+INSERT INTO Review (title, description, meal_id, stars, created_date)
+VALUES 
+('Amazing Pasta Night', 'The pasta was delicious and the atmosphere was great!', 1, 5, '2023-09-30'),
+('Sushi Heaven', 'Best sushi I have ever had!', 2, 4, '2023-09-30'),
+('BBQ Bliss', 'The BBQ was fantastic, loved the grilled meats!', 3, 5, '2023-09-30'),
+('Vegan Paradise', 'So many tasty vegan options!', 4, 4, '2023-09-30'),
+('Seafood Delight', 'Fresh seafood and great service!', 5, 5, '2023-09-30'),
+('Taco Fiesta', 'The tacos were authentic and flavorful!', 6, 5, '2023-09-30'),
+('Curry Perfection', 'The curries were spicy and delicious!', 7, 5, '2023-09-30'),
+('French Elegance', 'The French dishes were exquisite and paired well with wine!', 8, 5, '2023-09-30');
+
+SELECT * FROM Review;
+
+INSERT INTO Review (title, description, meal_id, stars, created_date)
+VALUES 
+('Taco Tuesday', 'Authentic Mexican tacos', 6, 5, '2023-09-30'),
+('Indian Curry Night', 'Spicy Indian curries and naan', 7, 4, '2023-09-30'),
+('French Bistro Evening', 'Classic French dishes and wine', 8, 5, '2023-09-30');
+
+SELECT * FROM Review;
+
+
+SELECT * FROM Review
+WHERE meal_id = 11;
 
 UPDATE Review
-SET stars = 4, description = 'The meal was good but the service could be improved.'
-WHERE id = 1;
+SET stars = 4
+WHERE meal_id = 11;
 
-# Additionals
+SELECT * FROM Review;
 
-UPDATE Review
-SET stars = 4, description = 'The meal was good but the service could be improved.'
-WHERE id = 1;
+UPDATE review
+SET title = 'Updated Review Title', description = 'Updated review description'
+WHERE id = 11;
 
-SELECT m.*
-FROM Meal m
-LEFT JOIN Reservation r ON m.id = r.meal_id
-GROUP BY m.id
-HAVING COUNT(r.id) < m.max_reservations;
+SELECT * FROM Review;
+SELECT * FROM Review
+WHERE meal_id = 11;
 
-SELECT * FROM Meal WHERE title LIKE '%Rød grød med%';
+# Meals that are relatively cheaper than the rest of the meals
+SELECT *
+FROM Meal
+WHERE price < 20;
 
-SELECT * FROM Meal WHERE created_date BETWEEN '2023-10-01' AND '2023-10-31';
+# Meals that has available reservations
+SELECT *
+FROM Meal
+WHERE max_reservations > 0;
 
-SELECT * FROM Meal LIMIT 5;
+# Meals that are available in the next 30 days
+# MEAL table that has 'night' word somewhere in the title
+SELECT * 
+FROM meal
+WHERE title like '%Night%'
 
+# eals that has two dates
+SELECT *
+FROM meal
+WHERE `when` BETWEEN '2023-10-01' AND '2023-10-31';
 
-SELECT * FROM Reservation WHERE meal_id = 1 ORDER BY created_date;
+SELECT *
+FROM meal
+LIMIT 11;
+
+# Meals that have reviews
+SELECT *
+FROM review
+WHERE stars > 1;
+
+# Reservations with a certain meal and/or date
+SELECT *
+FROM reservation
+WHERE meal_id = 1
+ORDER BY created_date;
+
+# Putting meals by date
+SELECT *
+FROM meal
+ORDER BY `when` DESC;
+
+# Putting meals by price
+SELECT *
+FROM meal
+ORDER BY price DESC;
+
+# Putting meals by title
+SELECT *    
+FROM meal
+ORDER BY title ASC;
+
+# Putting meals by location
+SELECT *
+FROM meal
+ORDER BY location ASC;
+
+# Putting meals by max_reservations
+SELECT *
+FROM meal
+ORDER BY max_reservations DESC;
+
+# Putting meals by stars
+SELECT *
+FROM review
+ORDER BY stars DESC;
+
+#Putting meals by avarage number of stars in the review table
+SELECT meal_id, AVG(stars) AS average_stars
+FROM review
+GROUP BY meal_id
+HAVING AVG(stars) > 3
+ORDER BY average_stars DESC;
+
+# Putting meals by number of reviews
+SELECT meal_id, COUNT(*) AS number_of_reviews
+FROM review
+GROUP BY meal_id
+HAVING COUNT(*) > 1
+ORDER BY number_of_reviews DESC;
