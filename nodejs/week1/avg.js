@@ -1,4 +1,4 @@
-// Here we first get command line arguments, ignorring the first two elements
+// Here we first get command line arguments, ignoring the first two elements
 const args = process.argv.slice(2);
 
 // But if there're basically no argument, then we print a message and exit
