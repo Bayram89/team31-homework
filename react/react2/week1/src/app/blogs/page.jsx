@@ -4,14 +4,14 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 
-// Dummy blog posts
+// blog posts
 const blogPosts = [
     { slug: "my-new-post", title: "My New Post" },
     { slug: "hello-world", title: "Hello World" },
     { slug: "react-routing", title: "React Routing" },
 ];
 
-// NASA API key (use DEMO_KEY for testing)
+// this is for testing
 const NASA_API_KEY = "h4Kf953HHtDP77VVdvtJV7TisdZlWWmX9ZwkEpWg";
 
 function BlogsList() {
@@ -33,7 +33,7 @@ function BlogsList() {
 function BlogPost() {
     const pathname = usePathname();
     const slug = pathname.split("/").pop();
-    // Convert slug to title (e.g., "my-new-post" => "My New Post")
+    // Converting title name ( fx from my-new-post to My New Post)
     const title = slug
         .split("-")
         .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
@@ -53,14 +53,14 @@ function NasaEpic() {
 
     useEffect(() => {
         async function fetchEpic() {
-            // Get the list of images for the date
+            // here we get the images for the date
             const resp = await fetch(
                 `https://api.nasa.gov/EPIC/api/natural/date/${date}?api_key=${NASA_API_KEY}`
             );
             const data = await resp.json();
             if (data && data.length > 0) {
                 const imgName = data[0].image;
-                // Build image URL
+              
                 const [y, m, d] = date.split("-");
                 const url = `https://epic.gsfc.nasa.gov/archive/natural/${y}/${m}/${d}/jpg/${imgName}.jpg`;
                 setImgUrl(url);
@@ -84,7 +84,7 @@ function NasaEpic() {
     );
 }
 
-// Simple router for demonstration (replace with Next.js routing in real app)
+//  router 
 export default function BlogsPage() {
     const pathname = usePathname();
 
