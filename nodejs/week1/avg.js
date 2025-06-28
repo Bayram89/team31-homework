@@ -7,16 +7,13 @@ if (args.length === 0) {
   process.exit(1);
 }
 
-// Here with this loop we convert each comment line argument from strings to numbers
-const numbers = [];
-for (let i = 0; i < args.length; i++) {
-  const num = Number(args[i]);
-    // If any of the arguments is not a number, we print a message and exit
-  if (isNaN(num)) {
-    console.log("Please provide only numbers");
-    process.exit(1);
-  }
-  numbers.push(num);
+// Convert all command line arguments to numbers using map
+const numbers = args.map(Number);
+
+// Check if any argument is not a valid number
+if (numbers.some(isNaN)) {
+  console.log("Please provide only numbers");
+  process.exit(1);
 }
 
 // We're calculating the sum of all the numbers in the numbers array
